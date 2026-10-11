@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sky"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Artifact 4: Distributed Event-Driven Media SaaS Platform | Khalil</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Alfa+Slab+One&family=Special+Elite&display=swap" rel="stylesheet"><link rel="stylesheet" href="op.css">
+<style>.sub{max-width:640px}.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:1.2rem}.row .panel{padding:1.1rem}.row h3{font-family:var(--slab);font-weight:400;margin:.2rem 0}ul.t{padding-left:1.1rem}.small{font-size:.85rem}.panel p{margin:.4rem 0}
+.arch rect.box.on{fill:#f5b81c}.arch .pipe{stroke:var(--red)}#log div{padding:.15rem 0;border-bottom:1px dashed #0003}</style></head><body><svg width="0" height="0" style="position:absolute"><defs><symbol id="jr" viewBox="0 0 100 100"><path d="M18 78 82 52M82 78 18 52" stroke="#f3e6c9" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="52" r="20" fill="#f3e6c9" stroke="#000" stroke-width="2.5"/><circle cx="43" cy="52" r="5" fill="#000"/><circle cx="57" cy="52" r="5" fill="#000"/><path d="M42 64h16M46 64v5M50 64v5M54 64v5" stroke="#000" stroke-width="2"/><ellipse cx="50" cy="34" rx="36" ry="9" fill="#f5b81c" stroke="#000" stroke-width="2.5"/><path d="M28 34C28 10 72 10 72 34Z" fill="#f5b81c" stroke="#000" stroke-width="2.5"/><path d="M28 31q22 6 44 0v-6q-22 6-44 0Z" fill="#e8412f"/></symbol><symbol id="wv" viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0 40h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16V90H0Z"/></symbol></defs></svg>
+<header class="bar"><a class="logo" href="index.html"><svg><use href="#jr"/></svg>khalil</a>
+<nav><a class="l" href="index.html#artifacts">All artifacts</a><a class="l" href="artifact1.html">Site</a><a class="l" href="artifact2.html">Arcade</a><a class="l" href="artifact3.html">Resume</a><a class="l" href="artifact4.html">Platform</a><a class="l" href="artifact5.html">Tracker</a></nav>
+<div class="r"><span class="dots"><button data-t="sky" aria-label="Grand Line theme"></button><button data-t="wanted" aria-label="Wanted theme"></button><button data-t="wano" aria-label="Wano theme"></button></span><a class="cta" href="index.html">Home</a></div></header>
+<main><div class="wrap">
+<section style="padding-top:3rem"><div class="two panel"><div><div class="pix">&gt;Artifact 4</div><h2>Event-Driven Media <span class="hl">Platform</span></h2><p>An architecture showcase for a cloud-based media platform, built toward my Solutions Architect certification.</p><a class="cta alt" href="index.html#artifacts">&larr; All artifacts</a></div>
+<div class="stage" style="height:auto"><article class="card panel" style="max-width:240px;grid-column:auto"><div class="wanted">WANTED</div><div class="photo" data-n="4"><canvas class="spr" data-c="nami"></canvas></div><div class="doa">DEAD OR ALIVE</div><div class="who">NAMI</div><div class="bounty">฿ 366,000,000</div><div class="marine">TCSS 490</div></article></div></div></section>
+<section><div class="pix">&gt;Simulator</div><h2>Follow an <span class="hl">upload.</span></h2>
+<p class="sub">A concept sketch, not a deployed system. Press the button to watch one video upload travel through the platform as events.</p>
+<div class="arch panel"><svg viewBox="0 0 760 220" role="img" aria-label="Client to API Gateway to Event Bus to Transcode Workers and Storage plus CDN">
+<path class="pipe" d="M110 110H170"/><path class="pipe" d="M290 110H350"/><path class="pipe" d="M470 110C500 110 500 50 530 50H560"/><path class="pipe" d="M470 110C500 110 500 170 530 170H560"/>
+<rect class="box" id="cl" x="10" y="85" width="100" height="50" rx="8"/><text x="60" y="115" text-anchor="middle">Client</text>
+<rect class="box" id="ap" x="170" y="85" width="120" height="50" rx="8"/><text x="230" y="115" text-anchor="middle">API Gateway</text>
+<rect class="box" id="eb" x="350" y="85" width="120" height="50" rx="8"/><text x="410" y="115" text-anchor="middle">Event Bus</text>
+<rect class="box" id="wk" x="560" y="25" width="190" height="50" rx="8"/><text x="655" y="55" text-anchor="middle">Transcode Workers</text>
+<rect class="box" id="st" x="560" y="145" width="190" height="50" rx="8"/><text x="655" y="175" text-anchor="middle">Storage + CDN</text></svg></div>
+<p style="text-align:center"><button class="cta" id="run">Upload a video</button></p>
+<div class="panel" id="log" style="padding:1rem;min-height:120px;font-size:.85rem"><div>Event log appears here.</div></div></section>
+<section><div class="pix">&gt;Mapping</div><h2>Possible <span class="hl">AWS services.</span></h2><div class="row">
+<div class="panel"><h3>Entry</h3><ul class="t small"><li>Client: web or mobile app</li><li>API Gateway for auth and uploads</li></ul></div>
+<div class="panel"><h3>Events</h3><ul class="t small"><li>EventBridge or SNS + SQS as the bus</li><li>Decoupled, retryable consumers</li></ul></div>
+<div class="panel"><h3>Work and storage</h3><ul class="t small"><li>Lambda, ECS Fargate or MediaConvert for transcoding</li><li>S3 for files, CloudFront as the CDN</li></ul></div></div></section>
+</div><footer>Khalil &middot; TCSS 490 &middot; <a href="index.html" style="color:inherit">back to the crew</a></footer></main>
+<script src="sprites.js"></script><script src="op.js"></script><script>var steps=[[0,'cl','Client uploads video.mp4'],[900,'ap','API Gateway authorizes the request and returns 202 Accepted'],[1800,'eb','Event VideoUploaded is published to the event bus'],[2700,'wk','A transcode worker consumes the event and makes 1080p, 720p and 480p renditions'],[4200,'st','Renditions are written to storage and the CDN cache is primed'],[5000,'eb','Event VideoReady is published, client is notified']],busy=false;
+function lit(id){['cl','ap','eb','wk','st'].forEach(function(i){document.getElementById(i).classList.toggle('on',i===id)})}
+document.getElementById('run').onclick=function(){if(busy)return;busy=true;var lg=document.getElementById('log');lg.innerHTML='';
+steps.forEach(function(s){setTimeout(function(){lit(s[1]);var d=document.createElement('div');d.textContent=new Date().toLocaleTimeString()+'  '+s[2];lg.appendChild(d)},s[0])});
+setTimeout(function(){lit('');busy=false},6000)};</script></body></html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sky"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Artifact 2: MuseDunk Arcade | Khalil</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Alfa+Slab+One&family=Special+Elite&display=swap" rel="stylesheet"><link rel="stylesheet" href="op.css">
+<style>.sub{max-width:640px}.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:1.2rem}.row .panel{padding:1.1rem}.row h3{font-family:var(--slab);font-weight:400;margin:.2rem 0}ul.t{padding-left:1.1rem}.small{font-size:.85rem}.panel p{margin:.4rem 0}
+</style></head><body><svg width="0" height="0" style="position:absolute"><defs><symbol id="jr" viewBox="0 0 100 100"><path d="M18 78 82 52M82 78 18 52" stroke="#f3e6c9" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="52" r="20" fill="#f3e6c9" stroke="#000" stroke-width="2.5"/><circle cx="43" cy="52" r="5" fill="#000"/><circle cx="57" cy="52" r="5" fill="#000"/><path d="M42 64h16M46 64v5M50 64v5M54 64v5" stroke="#000" stroke-width="2"/><ellipse cx="50" cy="34" rx="36" ry="9" fill="#f5b81c" stroke="#000" stroke-width="2.5"/><path d="M28 34C28 10 72 10 72 34Z" fill="#f5b81c" stroke="#000" stroke-width="2.5"/><path d="M28 31q22 6 44 0v-6q-22 6-44 0Z" fill="#e8412f"/></symbol><symbol id="wv" viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0 40h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16V90H0Z"/></symbol></defs></svg>
+<header class="bar"><a class="logo" href="index.html"><svg><use href="#jr"/></svg>khalil</a>
+<nav><a class="l" href="index.html#artifacts">All artifacts</a><a class="l" href="artifact1.html">Site</a><a class="l" href="artifact2.html">Arcade</a><a class="l" href="artifact3.html">Resume</a><a class="l" href="artifact4.html">Platform</a><a class="l" href="artifact5.html">Tracker</a></nav>
+<div class="r"><span class="dots"><button data-t="sky" aria-label="Grand Line theme"></button><button data-t="wanted" aria-label="Wanted theme"></button><button data-t="wano" aria-label="Wano theme"></button></span><a class="cta" href="index.html">Home</a></div></header>
+<main><div class="wrap">
+<section style="padding-top:3rem"><div class="two panel"><div><div class="pix">&gt;Artifact 2</div><h2>MuseDunk <span class="hl">Arcade</span></h2><p>An NBA-flavored arcade prototype. Time your shot on the Dunk Meter and try to beat your best score.</p><a class="cta alt" href="index.html#artifacts">&larr; All artifacts</a></div>
+<div class="stage" style="height:auto"><article class="card panel" style="max-width:240px;grid-column:auto"><div class="wanted">WANTED</div><div class="photo" data-n="2"><canvas class="spr" data-c="zoro"></canvas></div><div class="doa">DEAD OR ALIVE</div><div class="who">RORONOA ZORO</div><div class="bounty">฿ 1,111,000,000</div><div class="marine">TCSS 490</div></article></div></div></section>
+<section><div class="pix">&gt;Play</div><h2>Dunk <span class="hl">Meter</span></h2>
+<div class="panel" style="padding:1.2rem;text-align:center"><canvas id="g" width="160" height="90" style="width:min(640px,100%);image-rendering:pixelated;border:4px solid var(--ink)"></canvas>
+<p>Stop the bar in the green zone. Press <b>Space</b> or the button. Shots left: <b id="sl">10</b> &middot; Score: <b id="sc">0</b> &middot; Best: <b id="bs">0</b></p><p id="msg"><b>Ready?</b></p><button class="cta" id="go">SHOOT!</button></div></section>
+<section><div class="pix">&gt;Roadmap</div><h2>Stats and dunks <span class="hl">next.</span></h2><p class="sub">The full idea is a StatsMuse-style question box plus real dunk GIFs. Those need a live NBA data source, so this prototype only has the arcade game.</p></section>
+</div><footer>Khalil &middot; TCSS 490 &middot; <a href="index.html" style="color:inherit">back to the crew</a></footer></main>
+<script src="sprites.js"></script><script src="op.js"></script><script>var cv=document.getElementById('g'),g=cv.getContext('2d'),f=0,shots=10,score=0,ball=null,msg='',best=ld('md-best');
+function ld(k){try{return +localStorage.getItem(k)||0}catch(e){return 0}}
+function sv(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function R(x,y,w,h,c){g.fillStyle=c;g.fillRect(x,y,w,h)}
+function pos(){return 80+Math.sin(f*.09*(1+(10-shots)*.08))*60}
+function upd(){document.getElementById('sl').textContent=shots;document.getElementById('sc').textContent=score;document.getElementById('bs').textContent=best;document.getElementById('msg').innerHTML='<b>'+msg+'</b>'}
+function shoot(){if(ball)return;if(shots<=0){shots=10;score=0;msg='Go!';upd();return}var d=Math.abs(pos()-80),p=d<=8?3:d<=20?2:d<=34?1:0;ball={t:0,p:p,tx:p?139:128,ty:p?38:48}}
+function draw(){f++;R(0,0,160,90,'#7ec8ff');R(0,72,160,18,'#c68a45');R(0,72,160,2,'#1a1020');
+R(147,12,4,30,'#1a1020');R(148,13,2,28,'#fff');R(134,34,14,2,'#d42f2a');for(var i=0;i<4;i++)R(135+i*3,36+i%2,1,6,'#fff');
+R(20,80,120,6,'#1a1020');R(21,81,118,4,'#555');R(62,81,36,4,'#4cc35a');R(76,81,8,4,'#f5c242');
+blit(g,'luffy',4,46,1);
+if(!ball&&shots>0)R(Math.round(pos())-1,78,3,10,'#fff');
+if(ball){ball.t++;var u=Math.min(1,ball.t/34),x=Math.round(30+(ball.tx-30)*u),y=Math.round(58+(ball.ty-58)*u-112*u*(1-u));R(x-3,y-3,6,6,'#1a1020');R(x-2,y-2,4,4,'#ff8a1f');
+if(u>=1){var p=ball.p;ball=null;score+=p;shots--;msg=p===3?'SLAM DUNK! +3':p===2?'SWISH! +2':p===1?'Off the rim and in. +1':'Miss';
+if(shots===0){if(score>best){best=score;sv('md-best',best)}msg+=' | Game over. Press SHOOT to replay.'}upd()}}}
+setInterval(draw,33);document.getElementById('go').onclick=shoot;
+addEventListener('keydown',function(e){if(e.code==='Space'){e.preventDefault();shoot()}});upd();</script></body></html>
