@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sky">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Khalil | TCSS 490 Artifacts</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Alfa+Slab+One&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#dff1ff;--bg2:#a9d8ff;--fg:#10243d;--accent:#3b9bff;--red:#e8412f;--gold:#f5b81c;--paper:#dccaa4;--ink:#3a2a1a;--h:"Anton","Impact",sans-serif;--slab:"Alfa Slab One","Rockwell",Georgia,serif;--type:"Special Elite","Courier New",monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[data-theme="wanted"]{--bg:#1d1612;--bg2:#0f0a07;--fg:#f3e6c9;--accent:#f5b81c}
+[data-theme="wano"]{--bg:#24103f;--bg2:#12071f;--fg:#fbeff0;--accent:#ff4d6d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;color:var(--fg);font-family:var(--type);line-height:1.6;min-height:100%;background:radial-gradient(var(--ink) 1px,transparent 1.4px) 0 0/9px 9px,linear-gradient(180deg,var(--bg2),var(--bg) 40%,var(--bg));background-blend-mode:soft-light,normal;background-attachment:fixed;transition:background .5s}
+header.bar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:1.2rem;padding:.6rem clamp(1rem,3vw,2rem);padding-top:calc(.6rem + env(safe-area-inset-top,0px));background:var(--ink);border-bottom:4px solid var(--gold);color:#f3e6c9}
+.logo{display:flex;align-items:center;gap:.5rem;font-family:var(--slab);font-size:1.25rem;color:#f3e6c9;text-decoration:none}
+.logo svg{width:40px;height:40px}
+.bar nav{display:flex;gap:1.2rem;flex:1}
+.bar a.l{color:#f3e6c9;text-decoration:none;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em}
+.bar a.l:hover{color:var(--gold)}
+.bar .r{display:flex;align-items:center;gap:.9rem}
+.cta{background:var(--red);color:#fff;text-decoration:none;font-family:var(--slab);font-size:.8rem;padding:.6rem 1rem;border:3px solid #000;border-radius:6px;box-shadow:3px 3px 0 #000;transition:transform .15s,box-shadow .15s;display:inline-block}
+.cta:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #000}
+.cta.alt{background:var(--gold);color:#000}
+.dots button{width:18px;height:18px;border-radius:50%;border:2px solid #f3e6c9;cursor:pointer;margin-left:4px;padding:0}
+.dots [data-t=sky]{background:#3b9bff}.dots [data-t=wanted]{background:#f5b81c}.dots [data-t=wano]{background:#ff4d6d}
+.dots button[aria-pressed="true"]{outline:2px solid var(--gold);outline-offset:2px}
+main{position:relative;z-index:1}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+.hero{min-height:calc(100svh - 250px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1.25rem 4rem;position:relative}
+.skull{width:84px;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(4deg)}}
+.pix{font-family:var(--type);text-transform:uppercase;letter-spacing:.2em;font-size:.8rem;color:var(--red);font-weight:700}
+h1{font-family:var(--h);font-weight:400;font-size:clamp(3.6rem,13vw,8.6rem);line-height:.95;letter-spacing:.01em;text-transform:uppercase;margin:.8rem 0 1.4rem;color:transparent;background:radial-gradient(#ffffff88 1.3px,transparent 1.6px) 0 0/6px 6px,var(--accent);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(5px 3px 0 #ff9ad5aa) drop-shadow(-3px -2px 0 #7ffbd0aa)}
+.caret{display:inline-block;width:.55em;height:1em;background:var(--red);margin-left:4px;vertical-align:-.15em;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.heroP{max-width:560px;margin:1.6rem auto 0;font-size:1.05rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.8rem}
+.chip2{padding:.3rem .9rem;background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:4px;font-size:.85rem;transform:rotate(-1.5deg);transition:transform .2s}
+.chip2:nth-child(even){transform:rotate(1.5deg)}.chip2:hover{transform:rotate(0) scale(1.1)}
+.sea{--sea:#3b9bff;position:relative;height:420px;margin-top:-2rem;overflow:hidden;border-bottom:5px solid var(--ink);pointer-events:none}
+[data-theme=wanted] .sea{--sea:#2a7aa8}[data-theme=wano] .sea{--sea:#6a5bd8}
+.sea::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:radial-gradient(#fffa 2px,#0000 3px) 0 0/73px 41px;animation:tw 2.4s steps(2) infinite;z-index:5}
+@keyframes tw{50%{opacity:.25;background-position:22px 12px}}
+.w{position:absolute;left:0;bottom:0;width:200%;height:90px;fill:var(--c);animation:wave var(--s,9s) steps(30) infinite;shape-rendering:crispEdges}
+.w.r{animation-direction:reverse}
+@keyframes wave{to{transform:translateX(-50%)}}
+.sail{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;animation:drift 16s steps(20) infinite}
+@keyframes drift{50%{transform:translateX(50px)}}
+.ship{width:min(640px,94vw);height:auto;image-rendering:pixelated;image-rendering:crisp-edges;animation:bob 2.4s steps(4) infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.spr{height:100%;width:auto;image-rendering:pixelated;image-rendering:crisp-edges;position:relative;z-index:1}
+.photo::before{content:attr(data-n);position:absolute;left:8px;top:0;font-family:var(--h);font-size:1.7rem;color:#fff;text-shadow:2px 2px 0 #000;z-index:2}
+.who{font-family:var(--slab);font-size:.95rem;letter-spacing:.06em;margin-top:.3rem}
+section{padding:5rem 0 0}
+section h2{font-family:var(--slab);font-weight:400;font-size:clamp(1.9rem,5vw,3rem);line-height:1.1;margin:.4rem 0 1rem;text-shadow:3px 3px 0 color-mix(in srgb,var(--accent) 60%,transparent)}
+.hl{color:var(--red)}
+.sub{max-width:640px}
+/* parchment panels */
+.panel{background:var(--paper) radial-gradient(#0000 55%,#6b4a1f33) ;color:var(--ink);border:4px solid var(--ink);border-radius:6px;box-shadow:6px 6px 0 #000a,inset 0 0 40px #8a622a55}
+.panel h2,.panel h3{color:var(--ink);text-shadow:none}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;padding:1.6rem}
+.loop{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0 .8rem}
+.step{font-size:.78rem;padding:.4rem .8rem;border:2px solid var(--ink);border-radius:4px;text-transform:uppercase;letter-spacing:.08em;transition:all .25s}
+.step.on{background:var(--red);color:#fff;transform:translateY(-4px) rotate(-2deg);box-shadow:3px 3px 0 #000}
+.meter{height:12px;border:2px solid var(--ink);background:#0002;max-width:420px}
+.meter div{height:100%;width:0;background:repeating-linear-gradient(45deg,var(--red) 0 8px,var(--gold) 8px 16px);transition:width .6s}
+.logpose{width:256px;height:256px;image-rendering:pixelated;image-rendering:crisp-edges}
+.stage{height:260px;display:grid;place-items:center}
+.arch{padding:1rem;overflow-x:auto;margin-top:1.4rem}
+.arch svg{min-width:640px;width:100%;height:auto;display:block}
+.arch text{fill:var(--ink);font-family:var(--type);font-size:13px;font-weight:700}
+.arch .box{fill:#f6ecd2;stroke:var(--ink);stroke-width:2.5}
+.arch .pipe{stroke:var(--red);stroke-width:2.5;fill:none;stroke-dasharray:6 6;animation:dash .6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-12}}
+.arch .pkt{fill:var(--gold);stroke:#000;stroke-width:1.5}
+/* wanted posters */
+.bento{display:grid;gap:1.4rem;grid-template-columns:repeat(6,1fr);margin-top:1.6rem}
+.card{grid-column:span 2;padding:1rem 1rem 1.2rem;text-align:center;transition:transform .25s;transform:rotate(var(--r,0deg))}
+.card:nth-child(1){--r:-1.2deg}.card:nth-child(2){--r:1.4deg}.card:nth-child(3){--r:-1deg}.card:nth-child(4){--r:.8deg}.card:nth-child(5){--r:-1.5deg}
+.card.big{grid-column:span 4}
+.card:hover{transform:rotate(0) translateY(-8px) scale(1.02)}
+.card{position:relative;cursor:pointer}
+.card a[href^="#a"]::after{content:"";position:absolute;inset:0;z-index:1}
+.card a[href^="https"]{position:relative;z-index:2}
+.card:focus-within{outline:3px solid var(--gold);outline-offset:3px}
+.wanted{font-family:var(--slab);font-size:2.2rem;letter-spacing:.04em;line-height:1;border-bottom:3px double var(--ink);padding-bottom:.4rem}
+.photo{margin:.7rem auto;height:130px;border:4px solid var(--ink);background:linear-gradient(135deg,var(--accent),var(--bg2));display:grid;place-items:center;font-family:var(--h);font-size:4.4rem;color:#fff;text-shadow:4px 4px 0 #000;position:relative;overflow:hidden}
+.photo::after{content:"";position:absolute;inset:0;background:radial-gradient(#fff3 1.2px,transparent 1.5px) 0 0/6px 6px}
+.doa{font-family:var(--slab);font-size:.8rem;letter-spacing:.08em}
+.card h3{font-family:var(--slab);font-weight:400;font-size:1.25rem;line-height:1.15;margin:.2rem 0 .3rem;text-transform:uppercase}
+.bounty{font-family:var(--slab);font-size:1.2rem;color:var(--red);margin:.2rem 0}
+.card p{margin:.4rem 0;font-size:.88rem}
+.card a{color:var(--red);font-weight:700}
+.badge{float:right;font-family:var(--slab);font-size:.62rem;padding:.1rem .5rem;background:var(--red);color:#fff;border-radius:3px;text-transform:uppercase;transform:rotate(6deg)}
+.badge.soon{background:var(--ink);color:var(--paper)}
+.marine{text-align:right;font-family:var(--slab);font-size:.75rem;opacity:.8;margin-top:.5rem}
+.photo[data-n="1"]{background:linear-gradient(135deg,#4aa8ff,#1d5fd0)}
+.photo[data-n="2"]{background:linear-gradient(135deg,#4cc35a,#1f7a35)}
+.photo[data-n="3"]{background:linear-gradient(135deg,#ff9ec4,#e0508f)}
+.photo[data-n="4"]{background:linear-gradient(135deg,#ffa94d,#e8631a)}
+.photo[data-n="5"]{background:linear-gradient(135deg,#ffd84d,#c9951a)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;margin-top:1.4rem}
+.stat{padding:1.2rem;text-align:center}
+.stat b{display:block;font-family:var(--h);font-weight:400;font-size:3.4rem;line-height:1;color:var(--red)}
+.contact{text-align:center;padding:2.4rem 1.5rem;margin-top:1.4rem}
+.contact h2{margin-bottom:1.2rem}.contact .cta{margin:.3rem}
+footer{text-align:center;font-size:.85rem;padding:3rem 1rem 4rem}
+.rv{opacity:0;translate:0 34px;transition:opacity .7s,translate .7s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;translate:0 0}
+@media(max-width:800px){.bar nav,.bar a.gh{display:none}.two{grid-template-columns:1fr}.card,.card.big{grid-column:span 6}}
+@media(max-width:560px){.cta{padding:.5rem .7rem;font-size:.7rem}.logo{font-size:1.05rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;translate:none}}
+.apage[hidden]{display:none}.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:1.2rem}.row .panel{padding:1.1rem}.row h3{font-family:var(--slab);font-weight:400;margin:.2rem 0}ul.t{padding-left:1.1rem}.small{font-size:.85rem}.panel p{margin:.4rem 0}
+@media print{header.bar,.cta,footer,.two,.sea{display:none!important}body{background:#fff}}
+.arch rect.box.on{fill:#f5b81c}.arch .pipe{stroke:var(--red)}#log div{padding:.15rem 0;border-bottom:1px dashed #0003}
+.card{overflow:hidden;animation:cardglow var(--gl,2.8s) ease-in-out var(--gd,0s) infinite}
+.card::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;mix-blend-mode:overlay;background:linear-gradient(115deg,transparent 34%,rgba(var(--sr,255,190,40),.55) 41%,#fff 50%,rgba(var(--sr,255,190,40),.55) 59%,transparent 66%) 100% 0/300% 100% no-repeat;animation:gleam var(--g,3.4s) ease-in-out var(--gd,0s) infinite}
+.card:nth-child(1){--g:4.6s;--gd:0s;--gl:3.1s;--sr:74,168,255;--s1:#a6d6ff;--s2:#1d7fe0}.card:nth-child(2){--g:6.2s;--gd:-2.1s;--gl:3.9s;--sr:76,195,90;--s1:#a4eaac;--s2:#1f9a3a}.card:nth-child(3){--g:5.3s;--gd:-3.4s;--gl:2.7s;--sr:255,120,180;--s1:#ffc4de;--s2:#e0508f}.card:nth-child(4){--g:7.1s;--gd:-1.3s;--gl:4.4s;--sr:255,140,40;--s1:#ffc784;--s2:#e8631a}.card:nth-child(5){--g:5.8s;--gd:-4.6s;--gl:3.5s;--sr:255,190,40;--s1:#ffd54a;--s2:#f5a800}
+@keyframes gleam{0%{background-position:100% 0}14%,100%{background-position:0 0}}
+@keyframes cardglow{0%,100%{box-shadow:6px 6px 0 #000a,inset 0 0 40px #8a622a55,0 0 10px 2px rgba(var(--sr,255,190,40),.4)}50%{box-shadow:6px 6px 0 #000a,inset 0 0 40px #8a622a55,0 0 28px 8px rgba(var(--sr,255,190,40),.75)}}
+.card .sp{position:absolute;z-index:4;pointer-events:none;opacity:0;background:radial-gradient(circle,#fff 0 18%,var(--s1,#ffd54a) 45%,var(--s2,#f5a800) 100%);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);animation:twk 2s steps(5) infinite}
+@keyframes twk{0%,100%{opacity:0;transform:scale(.2) rotate(0)}50%{opacity:1;transform:scale(1) rotate(45deg)}}
+#a1 .card{--sr:74,168,255;--s1:#a6d6ff;--s2:#1d7fe0}#a2 .card{--sr:76,195,90;--s1:#a4eaac;--s2:#1f9a3a}#a3 .card{--sr:255,120,180;--s1:#ffc4de;--s2:#e0508f}#a4 .card{--sr:255,140,40;--s1:#ffc784;--s2:#e8631a}#a5 .card{--sr:255,190,40;--s1:#ffd54a;--s2:#f5a800}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs><symbol id="jr" viewBox="0 0 100 100"><path d="M18 78 82 52M82 78 18 52" stroke="#f3e6c9" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="52" r="20" fill="#f3e6c9" stroke="#000" stroke-width="2.5"/><circle cx="43" cy="52" r="5" fill="#000"/><circle cx="57" cy="52" r="5" fill="#000"/><path d="M42 64h16M46 64v5M50 64v5M54 64v5" stroke="#000" stroke-width="2"/><ellipse cx="50" cy="34" rx="36" ry="9" fill="#f5b81c" stroke="#000" stroke-width="2.5"/><path d="M28 34C28 10 72 10 72 34Z" fill="#f5b81c" stroke="#000" stroke-width="2.5"/><path d="M28 31q22 6 44 0v-6q-22 6-44 0Z" fill="#e8412f"/></symbol><symbol id="wv" viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0 40h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16h38v-16h37v16h37v16h38v-16V90H0Z"/></symbol></defs></svg>
+<header class="bar">
+  <a class="logo" href="#top"><svg><use href="#jr"/></svg>khalil</a>
+  <nav><a class="l" href="#process">Process</a><a class="l" href="#architecture">Architecture</a><a class="l" href="#artifacts">Artifacts</a><a class="l" href="#about">About</a><a class="l" href="#contact">Contact</a></nav>
+  <div class="r"><a class="l gh" href="https://github.com/kahmed1-00">GitHub</a><a class="l gh" href="https://www.linkedin.com/in/khalil-ahmednoor-0a6275348/">LinkedIn</a>
+    <span class="dots"><button data-t="sky" aria-label="Grand Line theme"></button><button data-t="wanted" aria-label="Wanted theme"></button><button data-t="wano" aria-label="Wano theme"></button></span>
+    <a class="cta" href="#artifacts">Bounties</a></div>
+</header>
+<main>
+  <div class="hero" id="top">
+    <svg class="skull" viewBox="0 0 100 100"><use href="#jr"/></svg>
+    <div class="pix">&gt;<span id="typed"></span><span class="caret"></span></div>
+    <h1><span id="big" data-to="5">0</span>x Artifacts<br>One Quarter</h1>
+    <a class="cta" href="#artifacts">Set sail &rarr; see what I'm building</a>
+    <p class="heroP">Hi, I'm <b>Khalil</b>. A UW Tacoma computer science student, cloud computing concentration, building <b>real-world projects</b> on the road to my AWS Solutions Architect cert.</p>
+    <div class="chips"><span class="chip2">Project cars</span><span class="chip2">Learning to code</span><span class="chip2">AI</span><span class="chip2">Gym</span><span class="chip2">Traveling</span><span class="chip2">Wellness</span></div>
+  </div>
+  <div class="sea" aria-hidden="true">
+    <svg class="w" viewBox="0 0 1200 90" preserveAspectRatio="none" style="--s:11s;bottom:92px;--c:color-mix(in srgb,var(--sea) 55%,#fff)"><use href="#wv"/></svg>
+    <svg class="w r" viewBox="0 0 1200 90" preserveAspectRatio="none" style="--s:8s;bottom:62px;--c:var(--sea)"><use href="#wv"/></svg>
+    <div class="sail"><canvas id="shipc" class="ship" width="200" height="110"></canvas></div>
+    <svg class="w" viewBox="0 0 1200 90" preserveAspectRatio="none" style="--s:6s;bottom:0;--c:color-mix(in srgb,var(--sea) 70%,#000)"><use href="#wv"/></svg>
+  </div>
+
+  <div class="wrap">
+    <section id="process">
+      <div class="two panel">
+        <div>
+          <div class="pix">&gt;The log pose</div>
+          <h2>Build fast. <span class="hl">Ship it.</span></h2>
+          <p>Every artifact goes through the same loop with an AI coding tool, and I log each step in the repo.</p>
+          <div class="loop"><span class="step">Draft</span><span class="step">Refine</span><span class="step">Test</span><span class="step">Lint</span><span class="step">Deploy</span></div>
+          <div class="meter"><div id="meter"></div></div>
+        </div>
+        <div class="stage"><canvas id="logpose" class="logpose" width="64" height="64"></canvas></div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="pix">&gt;The big project</div>
+      <h2>Distributed event-driven <span class="hl">media platform.</span></h2>
+      <p class="sub">A sketch of the architecture I'm working toward for Artifact 4. Events sail from the client through the cloud to storage.</p>
+      <div class="arch panel">
+        <svg viewBox="0 0 760 220" role="img" aria-label="Architecture: Client to API Gateway to Event Bus to Transcode Workers and Storage plus CDN">
+          <path id="p1" class="pipe" d="M110 110H170"/><path id="p2" class="pipe" d="M290 110H350"/><path id="p3" class="pipe" d="M470 110C500 110 500 50 530 50H560"/><path id="p4" class="pipe" d="M470 110C500 110 500 170 530 170H560"/>
+          <rect class="box" x="10" y="85" width="100" height="50" rx="8"/><text x="60" y="115" text-anchor="middle">Client</text>
+          <rect class="box" x="170" y="85" width="120" height="50" rx="8"/><text x="230" y="115" text-anchor="middle">API Gateway</text>
+          <rect class="box" x="350" y="85" width="120" height="50" rx="8"/><text x="410" y="115" text-anchor="middle">Event Bus</text>
+          <rect class="box" x="560" y="25" width="190" height="50" rx="8"/><text x="655" y="55" text-anchor="middle">Transcode Workers</text>
+          <rect class="box" x="560" y="145" width="190" height="50" rx="8"/><text x="655" y="175" text-anchor="middle">Storage + CDN</text>
+          <circle class="pkt" r="5"><animateMotion dur="1s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle>
+          <circle class="pkt" r="5"><animateMotion dur="1s" begin=".25s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion></circle>
+          <circle class="pkt" r="5"><animateMotion dur="1s" begin=".5s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion></circle>
+          <circle class="pkt" r="5"><animateMotion dur="1s" begin=".7s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion></circle>
+        </svg>
+      </div>
+    </section>
+
+    <section id="artifacts">
+      <div class="pix">&gt;The artifacts</div>
+      <h2>Five artifacts. <span class="hl">One site.</span></h2>
+      <div class="bento">
+        <article class="card panel big">
+          <span class="badge">Done</span>
+          <div class="wanted">WANTED</div>
+          <div class="photo" data-n="1"><canvas class="spr" data-c="luffy"></canvas></div>
+          <div class="doa">DEAD OR ALIVE</div>
+          <div class="who">MONKEY D. LUFFY</div>
+          <h3>This Portfolio Site</h3>
+          <div class="bounty">฿ 3,000,000,000</div>
+          <p><a href="#a1">Open artifact &rarr;</a> &middot; <a href="https://kahmed1-00.github.io/tcss490-artifacts/">Live site</a></p>
+          <p>A portfolio site showcasing all my artifacts, integrated with using Claude.</p>
+          <div class="marine">TCSS 490</div>
+        </article>
+        <article class="card panel placeholder">
+          <span class="badge">Done</span>
+          <div class="wanted">WANTED</div>
+          <div class="photo" data-n="2"><canvas class="spr" data-c="zoro"></canvas></div>
+          <div class="doa">DEAD OR ALIVE</div>
+          <div class="who">RORONOA ZORO</div>
+          <h3>MuseDunk Arcade</h3>
+          <div class="bounty">฿ 1,111,000,000</div>
+          <p><a href="#a2">Open artifact &rarr;</a> &middot; <a href="https://kahmed1-00.github.io/MuseDunk-/">Live site</a></p>
+          <p>An interactive NBA stats and arcade site combining AirBallGG and StatsMuse, with real dunk GIFs.</p>
+          <div class="marine">TCSS 490</div>
+        </article>
+        <article class="card panel placeholder">
+          <span class="badge">Done</span>
+          <div class="wanted">WANTED</div>
+          <div class="photo" data-n="3"><canvas class="spr" data-c="chopper"></canvas></div>
+          <div class="doa">DEAD OR ALIVE</div>
+          <div class="who">TONY TONY CHOPPER</div>
+          <h3>Resume Tailor</h3>
+          <div class="bounty">฿ 1,000</div>
+          <p><a href="#a3">Open artifact &rarr;</a> &middot; <a href="https://github.com/kahmed1-00/tcss490-artifacts/blob/main/README.md">Resume Tailor repo</a></p>
+          <p>My resume page plus a Resume Tailor: paste a job posting and Claude picks and rewords my best-matching bullets, while plain code rejects any employer, number, or skill that isn't really on my resume.</p><p><b>Reflection:</b> Resume Tailor takes a job posting and has Claude pick and reword the resume bullets that fit it best. The AI call was the easy part. The real work was deciding what the code has to check, because a model will "improve" a bullet with numbers or skills I don't have. So the code checks every bullet, number and skill against my real resume, retries once, and falls back to keyword matching if Claude still gets it wrong. Testing with a fake model that lied showed me the checks actually work.</p>
+          <div class="marine">TCSS 490</div>
+        </article>
+        <article class="card panel placeholder big">
+          <span class="badge soon">Prototype</span>
+          <div class="wanted">WANTED</div>
+          <div class="photo" data-n="4"><canvas class="spr" data-c="nami"></canvas></div>
+          <div class="doa">DEAD OR ALIVE</div>
+          <div class="who">NAMI</div>
+          <h3>Distributed Event-Driven Media SaaS Platform</h3>
+          <div class="bounty">฿ 366,000,000</div>
+          <p><a href="#a4">Open artifact &rarr;</a></p>
+          <p>An architecture showcase and prototype for a cloud-based media platform, built toward my Solutions Architect cert.</p>
+          <div class="marine">TCSS 490</div>
+        </article>
+        <article class="card panel placeholder">
+          <span class="badge soon">Prototype</span>
+          <div class="wanted">WANTED</div>
+          <div class="photo" data-n="5"><canvas class="spr" data-c="sanji"></canvas></div>
+          <div class="doa">DEAD OR ALIVE</div>
+          <div class="who">VINSMOKE SANJI</div>
+          <h3>Solutions Architect Study Tracker</h3>
+          <div class="bounty">฿ 1,032,000,000</div>
+          <p><a href="#a5">Open artifact &rarr;</a></p>
+          <p>A tool to track cert progress, notes, and practice questions.</p>
+          <div class="marine">TCSS 490</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="pix">&gt;About me</div>
+      <h2>Cloud-minded, <span class="hl">detail-driven.</span></h2>
+      <p class="sub">Computer science at UW Tacoma with a cloud computing concentration. I've completed Data Structures, I'm taking Software Techniques &amp; Quality Assurance, and I'm a programmer in the UX Club.</p>
+      <div class="stats">
+        <div class="stat panel"><b data-to="5">0</b>artifacts this quarter</div>
+        <div class="stat panel"><b data-to="1">0</b>AWS cert in progress</div>
+        <div class="stat panel"><b data-to="6">0</b>things I'm into</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact panel">
+        <div class="pix">&gt;Contact</div>
+        <h2>Join my crew. Let's build something.</h2>
+        <a class="cta" href="https://github.com/kahmed1-00">GitHub</a><a class="cta alt" href="https://www.linkedin.com/in/khalil-ahmednoor-0a6275348/">LinkedIn</a>
+      </div>
+    </section>
+  </div>
+  <div class="wrap apage" id="a1" hidden>
+<section style="padding-top:3rem"><div class="two panel"><div><div class="pix">&gt;Artifact 1</div><h2>This Portfolio <span class="hl">Site</span></h2><p>The case study for the site you are looking at, with the tools, the build log and a place for my reflection.</p><a class="cta alt" href="#artifacts">&larr; All artifacts</a></div>
+<div class="stage" style="height:auto"><article class="card panel" style="max-width:240px;grid-column:auto"><div class="wanted">WANTED</div><div class="photo" data-n="1"><canvas class="spr" data-c="luffy"></canvas></div><div class="doa">DEAD OR ALIVE</div><div class="who">MONKEY D. LUFFY</div><div class="bounty">฿ 3,000,000,000</div><div class="marine">TCSS 490</div></article></div></div></section>
+<section><div class="pix">&gt;What it is</div><h2>A static site, <span class="hl">drawn in code.</span></h2>
+<p class="sub">My portfolio is plain HTML, CSS and JavaScript hosted on GitHub Pages. The pixel crew, ship and Log Pose are drawn on canvas, so there are no image files to manage.</p>
+<div class="row"><div class="panel"><h3>AI tool</h3><p>Claude (claude.ai) for planning, building and restyling.</p></div><div class="panel"><h3>Hosting</h3><p><a href="https://kahmed1-00.github.io/tcss490-artifacts/">GitHub Pages</a>, repo <b>tcss490-artifacts</b>.</p></div><div class="panel"><h3>Stack</h3><p>HTML, CSS, vanilla JS, canvas pixel art.</p></div></div></section>
+<section><div class="pix">&gt;Build log</div><h2>Seven entries. <span class="hl">One site.</span></h2><div class="row" style="grid-template-columns:1fr"><div class="panel"><h3>Entry 1: Planning</h3><p class="small">Pasted the assignment and asked what Claude could do. Replied "BUILD IT" without personal details, so the first version used placeholders.</p></div><div class="panel"><h3>Entry 2: First build</h3><p class="small">Got a single-file index.html with 4 switchable themes and 5 artifact cards. Then sent my details and ideas for Artifacts 2 to 5.</p></div><div class="panel"><h3>Entry 4: Restyle</h3><p class="small">Asked for Framer-style motion, then a dark tech landing page: typing text, count-up stats, scroll reveals and spotlight cards.</p></div><div class="panel"><h3>Entry 5: Dark purple + fast light</h3><p class="small">Black and violet theme with a glowing vertical light beam, a counting "5x" headline and a glowing isometric chip.</p></div><div class="panel"><h3>Entry 6: Darker, light travels the page</h3><p class="small">Pure black background and a canvas light engine that races up and down with scrolling, plus click pulses and magnetic buttons.</p></div><div class="panel"><h3>Entry 7: One Piece restyle</h3><p class="small">Switched to a One Piece look: Wanted-poster cards with a character per artifact, a pixel-art Thousand Sunny with the whole crew, waves, and a pixel Log Pose. Added one page per artifact.</p></div></div></section>
+<section><div class="pix">&gt;Reflection</div><h2>What I <span class="hl">learned.</span></h2><div class="panel" style="padding:1.2rem"><p><b>Which AI:</b> Claude (claude.ai).</p><p><b>What worked:</b> Screenshots and clear references.</p><p><b>What didn't:</b> Vague requests, like the ship not being pixelated at first.</p><p><b>What I learned:</b> Be specific and check every change.</p></div></section>
+</div>
+<div class="wrap apage" id="a2" hidden>
+<section style="padding-top:3rem"><div class="two panel"><div><div class="pix">&gt;Artifact 2</div><h2>MuseDunk <span class="hl">Arcade</span></h2><p>An NBA-flavored arcade prototype. Time your shot on the Dunk Meter and try to beat your best score. <a href="https://kahmed1-00.github.io/MuseDunk-/">Play the live site &rarr;</a></p><a class="cta alt" href="#artifacts">&larr; All artifacts</a></div>
+<div class="stage" style="height:auto"><article class="card panel" style="max-width:240px;grid-column:auto"><div class="wanted">WANTED</div><div class="photo" data-n="2"><canvas class="spr" data-c="zoro"></canvas></div><div class="doa">DEAD OR ALIVE</div><div class="who">RORONOA ZORO</div><div class="bounty">฿ 1,111,000,000</div><div class="marine">TCSS 490</div></article></div></div></section>
+<section><div class="pix">&gt;Play</div><h2>Dunk <span class="hl">Meter</span></h2>
+<div class="panel" style="padding:1.2rem;text-align:center"><canvas id="g" width="160" height="90" style="width:min(640px,100%);image-rendering:pixelated;border:4px solid var(--ink)"></canvas>
+<p>Stop the bar in the green zone. Press <b>Space</b> or the button. Shots left: <b id="sl">10</b> &middot; Score: <b id="sc">0</b> &middot; Best: <b id="bs">0</b></p><p id="msg"><b>Ready?</b></p><button class="cta" id="go">SHOOT!</button></div></section>
+<section><div class="pix">&gt;Roadmap</div><h2>Stats and dunks <span class="hl">next.</span></h2><p class="sub">The full idea is a StatsMuse-style question box plus real dunk GIFs. Those need a live NBA data source, so this prototype only has the arcade game.</p></section>
+</div>
+<div class="wrap apage" id="a3" hidden>
+<section style="padding-top:3rem"><div class="two panel"><div><div class="pix">&gt;Artifact 3</div><h2>Resume &amp; Projects <span class="hl">Showcase</span></h2><p>A career-focused page with my education, involvement, projects and links, ready to print or save as a PDF. <b>AI inside:</b> my Resume Tailor uses Claude to tailor this resume to any job posting, with code that blocks invented facts. <a href="https://github.com/kahmed1-00/tcss490-artifacts/blob/main/README.md">See the repo &rarr;</a></p><a class="cta alt" href="#artifacts">&larr; All artifacts</a></div>
+<div class="stage" style="height:auto"><article class="card panel" style="max-width:240px;grid-column:auto"><div class="wanted">WANTED</div><div class="photo" data-n="3"><canvas class="spr" data-c="chopper"></canvas></div><div class="doa">DEAD OR ALIVE</div><div class="who">TONY TONY CHOPPER</div><div class="bounty">฿ 1,000</div><div class="marine">TCSS 490</div></article></div></div></section>
+<section><div class="pix">&gt;Resume</div><h2>Khalil, <span class="hl">cloud-minded builder.</span></h2>
+<p class="sub">Computer science student at UW Tacoma with a cloud computing concentration, working toward the AWS Solutions Architect certification.</p>
+<div class="row"><div class="panel"><h3>Education</h3><p><b>University of Washington Tacoma</b><br>Computer Science, cloud computing concentration</p><p class="small">Completed: Data Structures<br>In progress: Software Techniques &amp; Quality Assurance</p></div>
+<div class="panel"><h3>Involvement</h3><p>Programmer, UX Club</p><h3>Certification</h3><p>AWS Solutions Architect (in progress)</p></div>
+<div class="panel"><h3>Skills</h3><p>Python, Java</p><h3>Interests</h3><p>Project cars, learning to code, AI, gym, traveling, wellness</p></div></div>
+<div class="panel" style="padding:1.1rem;margin-top:1.2rem"><h3 style="font-family:var(--slab);font-weight:400;margin:.2rem 0">Experience</h3><p><b>Warehouse Associate</b> &middot; Amazon<br><span class="small">Sep 2023 - Jan 2025 &middot; 1 yr 5 mos</span></p><ul class="t small"><li>Assisted customers with technical inquiries on computer-related issues, ensuring a smooth shopping experience.</li><li>Collaborated with team members to solve technology issues efficiently.</li><li>Utilized computer systems for item management, order processing, and troubleshooting.</li></ul></div></section>
+<section><div class="pix">&gt;Projects</div><h2>Five artifacts, <span class="hl">one quarter.</span></h2><div class="row">
+<div class="panel"><h3>1. This Portfolio Site</h3><p class="small">A One Piece themed site with a pixel-art crew and ship.</p><a href="#a1">Open &rarr;</a></div>
+<div class="panel"><h3>2. MuseDunk Arcade</h3><p class="small">An arcade shooting game prototype.</p><a href="#a2">Open &rarr;</a></div>
+<div class="panel"><h3>3. Resume Tailor</h3><p class="small">Claude tailors my resume to any job posting.</p><a href="#a3">Open &rarr;</a></div>
+<div class="panel"><h3>4. Event-Driven Media Platform</h3><p class="small">An architecture simulator for a cloud media platform.</p><a href="#a4">Open &rarr;</a></div>
+<div class="panel"><h3>5. Study Tracker</h3><p class="small">A Solutions Architect exam progress tracker.</p><a href="#a5">Open &rarr;</a></div></div></section>
+<section><div class="contact panel"><div class="pix">&gt;Links</div><h2>Find me online.</h2><a class="cta" href="https://github.com/kahmed1-00">GitHub</a><a class="cta alt" href="https://www.linkedin.com/in/khalil-ahmednoor-0a6275348/">LinkedIn</a><a class="cta alt" href="javascript:window.print()">Print / Save PDF</a></div></section>
+</div>
+<div class="wrap apage" id="a4" hidden>
+<section style="padding-top:3rem"><div class="two panel"><div><div class="pix">&gt;Artifact 4</div><h2>Event-Driven Media <span class="hl">Platform</span></h2><p>An architecture showcase for a cloud-based media platform, built toward my Solutions Architect certification.</p><a class="cta alt" href="#artifacts">&larr; All artifacts</a></div>
+<div class="stage" style="height:auto"><article class="card panel" style="max-width:240px;grid-column:auto"><div class="wanted">WANTED</div><div class="photo" data-n="4"><canvas class="spr" data-c="nami"></canvas></div><div class="doa">DEAD OR ALIVE</div><div class="who">NAMI</div><div class="bounty">฿ 366,000,000</div><div class="marine">TCSS 490</div></article></div></div></section>
+<section><div class="pix">&gt;Simulator</div><h2>Follow an <span class="hl">upload.</span></h2>
+<p class="sub">A concept sketch, not a deployed system. Press the button to watch one video upload travel through the platform as events.</p>
+<div class="arch panel"><svg viewBox="0 0 760 220" role="img" aria-label="Client to API Gateway to Event Bus to Transcode Workers and Storage plus CDN">
+<path class="pipe" d="M110 110H170"/><path class="pipe" d="M290 110H350"/><path class="pipe" d="M470 110C500 110 500 50 530 50H560"/><path class="pipe" d="M470 110C500 110 500 170 530 170H560"/>
+<rect class="box" id="cl" x="10" y="85" width="100" height="50" rx="8"/><text x="60" y="115" text-anchor="middle">Client</text>
+<rect class="box" id="ap" x="170" y="85" width="120" height="50" rx="8"/><text x="230" y="115" text-anchor="middle">API Gateway</text>
+<rect class="box" id="eb" x="350" y="85" width="120" height="50" rx="8"/><text x="410" y="115" text-anchor="middle">Event Bus</text>
+<rect class="box" id="wk" x="560" y="25" width="190" height="50" rx="8"/><text x="655" y="55" text-anchor="middle">Transcode Workers</text>
+<rect class="box" id="st" x="560" y="145" width="190" height="50" rx="8"/><text x="655" y="175" text-anchor="middle">Storage + CDN</text></svg></div>
+<p style="text-align:center"><button class="cta" id="run">Upload a video</button></p>
+<div class="panel" id="log" style="padding:1rem;min-height:120px;font-size:.85rem"><div>Event log appears here.</div></div></section>
+<section><div class="pix">&gt;Mapping</div><h2>Possible <span class="hl">AWS services.</span></h2><div class="row">
+<div class="panel"><h3>Entry</h3><ul class="t small"><li>Client: web or mobile app</li><li>API Gateway for auth and uploads</li></ul></div>
+<div class="panel"><h3>Events</h3><ul class="t small"><li>EventBridge or SNS + SQS as the bus</li><li>Decoupled, retryable consumers</li></ul></div>
+<div class="panel"><h3>Work and storage</h3><ul class="t small"><li>Lambda, ECS Fargate or MediaConvert for transcoding</li><li>S3 for files, CloudFront as the CDN</li></ul></div></div></section>
+</div>
+<div class="wrap apage" id="a5" hidden>
+<section style="padding-top:3rem"><div class="two panel"><div><div class="pix">&gt;Artifact 5</div><h2>Solutions Architect <span class="hl">Study Tracker</span></h2><p>A tool to track my cert progress, keep notes and practice with flashcards. Everything saves in your browser.</p><a class="cta alt" href="#artifacts">&larr; All artifacts</a></div>
+<div class="stage" style="height:auto"><article class="card panel" style="max-width:240px;grid-column:auto"><div class="wanted">WANTED</div><div class="photo" data-n="5"><canvas class="spr" data-c="sanji"></canvas></div><div class="doa">DEAD OR ALIVE</div><div class="who">VINSMOKE SANJI</div><div class="bounty">฿ 1,032,000,000</div><div class="marine">TCSS 490</div></article></div></div></section>
+<section><div class="pix">&gt;Progress</div><h2>Exam <span class="hl">readiness.</span></h2>
+<p class="sub">Slide each domain to how ready you feel. Weights follow the four SAA-C03 exam domains. Your progress and notes save in this browser.</p>
+<div class="panel" style="padding:1.2rem"><div id="doms"></div><p><b>Weighted readiness: <span id="ov">0</span>%</b></p><div class="meter" style="max-width:none"><div id="mt"></div></div></div></section>
+<section><div class="pix">&gt;Flashcards</div><h2>Quick <span class="hl">practice.</span></h2>
+<div class="panel" style="padding:1.2rem;text-align:center"><p id="q" style="font-size:1.1rem"></p><p id="a" style="color:var(--red);min-height:3rem"></p><button class="cta alt" id="flip">Show answer</button><button class="cta" id="nx">Next</button></div></section>
+<section><div class="pix">&gt;Notes</div><h2>Study <span class="hl">notes.</span></h2><div class="panel" style="padding:1rem"><textarea id="nt" rows="6" style="width:100%;font:inherit;padding:.6rem;border:2px solid var(--ink);background:#f6ecd2;color:var(--ink)" placeholder="Write what you want to remember..."></textarea></div></section>
+</div>
+<script>(function(){})();
+(function(){var cv=document.getElementById('g'),g=cv.getContext('2d'),f=0,shots=10,score=0,ball=null,msg='',best=ld('md-best');
+function ld(k){try{return +localStorage.getItem(k)||0}catch(e){return 0}}
+function sv(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function R(x,y,w,h,c){g.fillStyle=c;g.fillRect(x,y,w,h)}
+function pos(){return 80+Math.sin(f*.09*(1+(10-shots)*.08))*60}
+function upd(){document.getElementById('sl').textContent=shots;document.getElementById('sc').textContent=score;document.getElementById('bs').textContent=best;document.getElementById('msg').innerHTML='<b>'+msg+'</b>'}
+function shoot(){if(ball)return;if(shots<=0){shots=10;score=0;msg='Go!';upd();return}var d=Math.abs(pos()-80),p=d<=8?3:d<=20?2:d<=34?1:0;ball={t:0,p:p,tx:p?139:128,ty:p?38:48}}
+function draw(){f++;R(0,0,160,90,'#7ec8ff');R(0,72,160,18,'#c68a45');R(0,72,160,2,'#1a1020');
+R(147,12,4,30,'#1a1020');R(148,13,2,28,'#fff');R(134,34,14,2,'#d42f2a');for(var i=0;i<4;i++)R(135+i*3,36+i%2,1,6,'#fff');
+R(20,80,120,6,'#1a1020');R(21,81,118,4,'#555');R(62,81,36,4,'#4cc35a');R(76,81,8,4,'#f5c242');
+blit(g,'luffy',4,46,1);
+if(!ball&&shots>0)R(Math.round(pos())-1,78,3,10,'#fff');
+if(ball){ball.t++;var u=Math.min(1,ball.t/34),x=Math.round(30+(ball.tx-30)*u),y=Math.round(58+(ball.ty-58)*u-112*u*(1-u));R(x-3,y-3,6,6,'#1a1020');R(x-2,y-2,4,4,'#ff8a1f');
+if(u>=1){var p=ball.p;ball=null;score+=p;shots--;msg=p===3?'SLAM DUNK! +3':p===2?'SWISH! +2':p===1?'Off the rim and in. +1':'Miss';
+if(shots===0){if(score>best){best=score;sv('md-best',best)}msg+=' | Game over. Press SHOOT to replay.'}upd()}}}
+setInterval(draw,33);document.getElementById('go').onclick=shoot;
+addEventListener('keydown',function(e){if(e.code==='Space'&&!document.getElementById('a2').hidden){e.preventDefault();shoot()}});upd();})();
+(function(){})();
+(function(){var steps=[[0,'cl','Client uploads video.mp4'],[900,'ap','API Gateway authorizes the request and returns 202 Accepted'],[1800,'eb','Event VideoUploaded is published to the event bus'],[2700,'wk','A transcode worker consumes the event and makes 1080p, 720p and 480p renditions'],[4200,'st','Renditions are written to storage and the CDN cache is primed'],[5000,'eb','Event VideoReady is published, client is notified']],busy=false;
+function lit(id){['cl','ap','eb','wk','st'].forEach(function(i){document.getElementById(i).classList.toggle('on',i===id)})}
+document.getElementById('run').onclick=function(){if(busy)return;busy=true;var lg=document.getElementById('log');lg.innerHTML='';
+steps.forEach(function(s){setTimeout(function(){lit(s[1]);var d=document.createElement('div');d.textContent=new Date().toLocaleTimeString()+'  '+s[2];lg.appendChild(d)},s[0])});
+setTimeout(function(){lit('');busy=false},6000)};})();
+(function(){var D=[['Design Secure Architectures',30],['Design Resilient Architectures',26],['Design High-Performing Architectures',24],['Design Cost-Optimized Architectures',20]];
+var Q=[['Which S3 feature gives 99.999999999% durability?','Standard storage classes replicate data across multiple Availability Zones.'],['How do you make an RDS database highly available?','Enable Multi-AZ, which keeps a standby in another AZ with automatic failover.'],['Which service decouples producers from consumers with a queue?','Amazon SQS.'],['How do you scale read-heavy RDS workloads?','Add read replicas.'],['What is the least-privilege rule in IAM?','Grant only the permissions a user or role needs to do its job.'],['Which service caches content at edge locations?','Amazon CloudFront.']];
+function ld(k,d){try{var v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var pr=ld('sa-prog',[0,0,0,0]),box=document.getElementById('doms');
+D.forEach(function(d,i){var r=document.createElement('div');r.style.margin='.6rem 0';r.innerHTML='<b>'+d[0]+'</b> ('+d[1]+'%) <span id="v'+i+'"></span><br><input type="range" min="0" max="100" value="'+pr[i]+'" style="width:100%">';
+r.querySelector('input').oninput=function(){pr[i]=+this.value;sv('sa-prog',pr);show()};box.appendChild(r)});
+function show(){var t=0;D.forEach(function(d,i){t+=d[1]*pr[i]/100;document.getElementById('v'+i).textContent=pr[i]+'%'});document.getElementById('ov').textContent=Math.round(t);document.getElementById('mt').style.width=t+'%'}show();
+var n=document.getElementById('nt');n.value=ld('sa-notes','');n.oninput=function(){sv('sa-notes',n.value)};
+var qi=0;function card(){document.getElementById('q').textContent=Q[qi][0];document.getElementById('a').textContent='';document.getElementById('flip').textContent='Show answer'}
+document.getElementById('flip').onclick=function(){document.getElementById('a').textContent=Q[qi][1];this.textContent='Answer shown'};
+document.getElementById('nx').onclick=function(){qi=(qi+1)%Q.length;card()};card();})();
+</script>
+<footer></footer>
+</main>
+<script>
+(function(){
+  var root=document.documentElement,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,btns=document.querySelectorAll('.dots button'),T=['sky','wanted','wano'];
+  function set(t){root.setAttribute('data-theme',t);btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.t===t)});try{localStorage.setItem('op-theme',t)}catch(e){}}
+  var s='sky';try{s=localStorage.getItem('op-theme')||'sky'}catch(e){}
+  if(T.indexOf(s)<0)s='sky';
+  btns.forEach(function(b){b.onclick=function(){set(b.dataset.t)}});set(s);
+  var words=['THE CLOUD-MINDED PIRATE','CLOUD COMPUTING STUDENT','FUTURE SOLUTIONS ARCHITECT','UX CLUB PROGRAMMER'],wi=0,ci=0,del=false,el=document.getElementById('typed');
+  function tick(){var w=words[wi];if(reduce){el.textContent=w;return}
+    el.textContent=w.slice(0,ci);
+    if(!del&&ci===w.length){del=true;return setTimeout(tick,1500)}
+    if(del&&ci===0){del=false;wi=(wi+1)%words.length}
+    ci+=del?-1:1;setTimeout(tick,del?25:60)}
+  tick();
+  function count(n){var to=+n.dataset.to,t0=null;if(reduce){n.textContent=to;return}
+    requestAnimationFrame(function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1500);n.textContent=Math.round(to*(1-Math.pow(1-p,4)));if(p<1)requestAnimationFrame(f)})}
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);cio.unobserve(e.target)}})},{threshold:.5});
+  document.querySelectorAll('[data-to]').forEach(function(n){cio.observe(n)});
+  var steps=document.querySelectorAll('.step'),meter=document.getElementById('meter'),k=0;
+  function loop(){steps.forEach(function(x,i){x.classList.toggle('on',i===k)});meter.style.width=((k+1)/steps.length*100)+'%';k=(k+1)%steps.length}
+  loop();if(!reduce)setInterval(loop,900);
+  var rv=document.querySelectorAll('.hero>*,section h2,section .pix,.sub,.panel,.stat');
+  rv.forEach(function(n){n.classList.add('rv')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+  rv.forEach(function(n){io.observe(n)});
+  // ===== pixel art sprites (16 wide, bottom-aligned) =====
+  var COM={k:'#1a1020',s:'#f4b783',S:'#d98c5c',w:'#fff',z:'#00000047'};
+  var PAL={
+    luffy:{y:'#f2b83c',r:'#d42f2a',h:'#1d1d2b',t:'#d42f2a',T:'#9e2020',a:'#f5c242',p:'#3d63cc',P:'#2a3f96',c:'#fff',l:'#f4b783',L:'#d98c5c',f:'#2a2030'},
+    zoro:{h:'#3fa341',x:'#b33',t:'#232323',T:'#111',a:'#3fa341',p:'#2c2f3a',P:'#1d1f27',c:'#111',l:'#111',L:'#000',f:'#111'},
+    nami:{h:'#ff8a1f',m:'#c0392b',t:'#f4f1ea',T:'#cfc9b8',a:'#3a73d8',p:'#3a73d8',P:'#264aa0',c:'#3a73d8',l:'#f4b783',L:'#d98c5c',f:'#d94f4f'},
+    sanji:{h:'#f6df5a',r:'#e8412f',t:'#16161e',T:'#000',a:'#fff',p:'#16161e',P:'#000',c:'#16161e',l:'#16161e',L:'#000',f:'#0a0a0a'},
+    usopp:{h:'#2b2018',y:'#f5c242',m:'#c0392b',t:'#c99a2e',T:'#8c6a1d',a:'#6b4a1e',p:'#7a5a2b',P:'#523a1a',c:'#7a5a2b',l:'#f4b783',L:'#d98c5c',f:'#3a2a1a'},
+    robin:{h:'#14141c',m:'#c0392b',t:'#7e4bd0',T:'#5a2fa0',a:'#7e4bd0',p:'#5a2fa0',P:'#3d1f78',c:'#5a2fa0',l:'#f4b783',L:'#d98c5c',f:'#222'},
+    franky:{h:'#3aa0ff',t:'#f4b783',T:'#d98c5c',a:'#e8412f',p:'#e8412f',P:'#b02a1e',c:'#f4b783',l:'#f4b783',L:'#d98c5c',f:'#222'},
+    brook:{y:'#2b3fa8',h:'#1a1a24',s:'#eee',S:'#bbc',t:'#111118',T:'#000',a:'#fff',p:'#111118',P:'#000',c:'#111',l:'#111',L:'#000',f:'#000'},
+    jinbe:{h:'#101018',s:'#6aa6e8',S:'#4a82c4',t:'#6b3fa0',T:'#4a2a78',a:'#f5c242',p:'#34508c',P:'#233a6a',c:'#34508c',l:'#6aa6e8',L:'#4a82c4',f:'#222'},
+    chopper:{y:'#ff9ec4',s:'#e9b27a',S:'#a56a3a',p:'#3a7bd5',b:'#2f5fd0'}
+  };
+  var BODY=[".....kssssk.....","..kkttksskttkk..",".kttTksSSskTttk.",".ksskaaaaaakssk.",".ksskppppppkssk.","..kkppppppppkk..","...kpppPppPpk...","...kpppkkpppk...","...kccck.kccck..","...klllk.klllk..","...klLlk.klLlk..","..kkfffk.kfffkk.","..kkkkkk.kkkkkk."];
+  var HEAD={
+    luffy:["....kkkkkkkk....","...kyyyyyyyyk...","..kyyyyyyyyyyk..","..kyrrrrrrrryk..","kkyyyyyyyyyyyykk",".kkkhhhhhhhhkkk.","...khhhhhhhhk...","...khhsssshhk...","...kssksskssk...","...kssssssssk...","...kskwwwwksk..."],
+    zoro:["....kkkkkkkk....","...khhhhhhhhk...","..khhhhhhhhhhk..","..khhhhhhhhhhk..","..khhhhhhhhhhk..","...khhhhhhhhk...","...khhsssshhk...","...kxsksskssk...","...kxsssssssk...","...ksskkkkssk...","....kkkkkkkk...."],
+    nami:["....kkkkkkkk....","...khhhhhhhhk...","..khhhhhhhhhhk..","..khhhhhhhhhhk..","..khhhhhhhhhhk..","..khhh"+"ssss"+"hhk...","..kh"+"ssksskss"+"hk..","..kh"+"ssssssss"+"hk..","..kh"+"sssmmsss"+"hk..","..khh"+"ssssss"+"hhk.."],
+    sanji:["....kkkkkkkk....","...khhhhhhhhk...","..khhhhhhhhhhk..","..khhhhhhhhhhk..","...k"+"hhhhhhhh"+"k...","...k"+"hhhhhhss"+"k...","...k"+"hhhhssks"+"k...","...k"+"shhsssss"+"k...","...k"+"ssssssss"+"wwr.","....kkkkkkkk...."],
+    usopp:["....kkkkkkkk....","...khhhhhhhhk...","..khhhhhhhhhhk..","..khhhhhhhhhhk..","..kh"+"yyyyyyyy"+"hk..","..kh"+"ssksskss"+"hk..","..kh"+"ssssssss"+"SSk.","..kh"+"sssmmsss"+"hk..","...k"+"hssssssh"+"k..."],
+    franky:[".....kkkkkk.....","....khhhhhhk....","...khhhhhhhhk...","...khhhhhhhhk...","...k"+"kkkkkkkk"+"k...","...k"+"ssssssss"+"k...","...k"+"sskwwkss"+"k...","....kkkkkkkk...."],
+    brook:[".....kkkkkk.....",".....kyyyyk.....",".....kyyyyk.....","..kkkkkkkkkkkk..",".kkhhhhhhhhhhkk.",".khhhhhhhhhhhhk.",".khh"+"ssssssss"+"hhk.",".khh"+"ssksskss"+"hhk.",".khh"+"ssssssss"+"hhk.",".khh"+"skskskss"+"hhk.","..kh"+"ssssssss"+"hk.."],
+    jinbe:["....kkkkkkkk....","...khhhhhhhhk...","..khhhhhhhhhhk..","..khh"+"ssssss"+"hhk..","..kh"+"ssksskss"+"hk..","..kh"+"ssssssss"+"hk..","..kh"+"skwkkwks"+"hk..","...k"+"ssssssss"+"k..."]
+  };
+  HEAD.robin=HEAD.nami;
+  var CH=["...kk......kk...","...kSkkkkkkSk...","....kyyyyyyk....","....kywyywyk....","....kyywwyyk....","....kywyywyk....","...kkkkkkkkkk...","...kssksskssk...","...ksssbbsssk...","....kssssssk....","...ksSssssSsk...","...kssppppssk...","....kppppppk....","....ksk..ksk....","....kkk..kkk...."];
+  var GR={};
+  function grid(k){if(GR[k])return GR[k];var r=(k==='chopper'?CH:HEAD[k].concat(BODY)).slice();while(r.length<26)r.unshift('');r=r.slice(-26);r.push('..zzzzzzzzzzzz..');return GR[k]=r}
+  function blit(g,k,ox,oy,ns){var p=PAL[k],r=grid(k);for(var y=0;y<r.length;y++){var row=r[y];for(var x=0;x<16&&x<row.length;x++){var ch=row[x];if(ch==='.'||(ns&&ch==='z'))continue;var c=p[ch]||COM[ch];if(c){g.fillStyle=c;g.fillRect(ox+x,oy+y,1,1)}}}}
+  [].forEach.call(document.querySelectorAll('canvas.spr'),function(c){c.width=16;c.height=27;blit(c.getContext('2d'),c.dataset.c,0,0)});
+
+  window.blit=blit;
+  // ===== pixel ship (200x110 logical pixels) =====
+  var sc=document.getElementById('shipc'),sg=sc.getContext('2d'),F=0,CREW=['chopper','zoro','nami','usopp','sanji','robin','franky','brook','jinbe'];
+  function R(x,y,w,h,c){sg.fillStyle=c;sg.fillRect(x,y,w,h)}
+  function L(x0,y0,x1,y1,c){var dx=Math.abs(x1-x0),dy=Math.abs(y1-y0),sx=x0<x1?1:-1,sy=y0<y1?1:-1,e=dx-dy;for(;;){R(x0,y0,1,1,c);if(x0===x1&&y0===y1)break;var e2=2*e;if(e2>-dy){e-=dy;x0+=sx}if(e2<dx){e+=dx;y0+=sy}}}
+  function stripes(x,y,w,h){R(x-1,y-1,w+2,h+2,'#1a1020');for(var i=0;i<w;i++)R(x+i,y,1,h,((i>>1)%2)?'#d42f2a':'#f5c242')}
+  function sail(x0,x1,yt,yb,bu,cx,cy,emb){
+    for(var x=x0;x<=x1;x++){var t=Math.sin(Math.PI*(x-x0)/(x1-x0)),a=yt+Math.round(2*t),b=yb+Math.round(bu*t);
+      for(var y=a;y<=b;y++){var ed=y===a||y===b||x===x0||x===x1,c='#fff8e8';if(ed)c='#1a1020';else if(x>x1-8&&(x+y)%2===0)c='#d9cba6';else if((x-x0)%13===6&&y%2===0)c='#e6d9b8';R(x,y,1,1,c)}}
+    R(x0-3,yt-2,x1-x0+7,2,'#1a1020');R(x0-2,yt-1,x1-x0+5,1,'#8a5a2b');
+    if(emb)for(var j=-7;j<=7;j++)for(var i=-9;i<=9;i++)if(i*i/81+j*j/49<=1)R(cx+i,cy+j,1,1,(j>=0&&j<=2)?'#d42f2a':'#f5c242')}
+  function ship(){
+    sg.clearRect(0,0,200,110);var k='#1a1020',w=(F>>1)%2,x,y,i,j;
+    for(j=-8;j<=8;j++)for(i=-8;i<=8;i++){var q=i*i+j*j;if(q<=64)R(192+i,86+j,1,1,q>=49?k:((i===0||j===0||i===j||i===-j)?k:'#8a5a2b'))}
+    R(80,14,4,58,k);R(81,14,2,58,'#8a5a2b');R(128,28,4,44,k);R(129,28,2,44,'#8a5a2b');
+    sail(54,108,22,52,5,82,38,1);sail(112,150,32,58,4,0,0,0);
+    stripes(72,8,20,6);stripes(124,23,14,5);
+    R(81,0,2,8,k);R(131,12,2,11,k);
+    [[84,0],[134,12]].forEach(function(q){R(q[0],q[1]+w,10,7,k);R(q[0]+2,q[1]+1+w,2,2,'#fff');R(q[0]+6,q[1]+1+w,2,2,'#fff');R(q[0]+3,q[1]+4+w,4,1,'#fff')});
+    R(150,52,38,5,k);R(151,53,36,3,'#d42f2a');R(152,56,34,14,k);R(153,57,32,13,'#f2e3b8');
+    for(x=157;x<184;x+=8){R(x,60,4,7,k);R(x+1,61,2,5,'#7ec8ff')}
+    for(y=70;y<=98;y++){var t=(y-70)/28,xl=8+Math.round(Math.pow(t,1.7)*32),xr=192-Math.round(t*t*22),c;
+      if(y===70||y===98)c=k;else if(y===78)c='#f3e6c9';else if(y<87)c='#b3261e';else if(y<96)c=((y-87)%3===2)?'#a56a30':'#c68a45';else c='#6e4a22';
+      R(xl,y,xr-xl,1,c);
+      if(y<87&&y!==78)for(x=xr-7;x<xr;x++)if((x+y)%2===0)R(x,y,1,1,'#8f1d17');
+      R(xl,y,1,1,k);R(xr-1,y,1,1,k)}
+    for(x=44;x<176;x+=20){R(x,81,4,4,k);R(x+1,82,2,2,'#f5c242')}
+    for(y=60;y<70;y++){var bl=8+(y<64?(64-y)*2:0);R(bl,y,26-bl,1,'#b3261e');R(bl,y,1,1,k)}
+    R(16,59,10,1,k);R(16,60,10,1,'#f3e6c9');R(9,64,2,6,'#f3e6c9');
+    for(j=-12;j<=12;j++)for(i=-12;i<=12;i++){var r=Math.sqrt(i*i+j*j),a=Math.atan2(j,i);if(r<=6)R(10+i,70+j,1,1,'#ffd93d');else if(r<=7.5+4*Math.abs(Math.sin(a*4)))R(10+i,70+j,1,1,'#ff8a1f')}
+    R(7,67,1,2,k);R(12,67,1,2,k);R(8,72,4,1,k);
+    L(82,14,12,62,'#2a2030');L(132,28,186,52,'#2a2030');
+    blit(sg,'luffy',2,33+(((F+1)%10<2)?-1:0),1);
+    CREW.forEach(function(kk,n){blit(sg,kk,26+n*17,44+(((F+n*3)%10<2)?-1:0),1)});
+    F++;
+  }
+  ship();if(!reduce)setInterval(ship,110);
+  // ===== pixel Log Pose =====
+  var lp=document.getElementById('logpose'),lg=lp.getContext('2d'),LF=0;
+  function P(x,y,w,h,c){lg.fillStyle=c;lg.fillRect(x,y,w,h)}
+  function disc(cx,cy,r,c){for(var j=-r;j<=r;j++)for(var i=-r;i<=r;i++)if(i*i+j*j<=r*r+r*.5)P(cx+i,cy+j,1,1,c)}
+  function needle(cx,cy,a){var dx=Math.cos(a),dy=Math.sin(a);
+    for(var pass=0;pass<2;pass++)for(var s=-5;s<=7.5;s+=.5){var hw=s>=0?(1-s/7.5)*2.6:(1+s/5)*1.9;if(pass===0)hw+=.9;
+      for(var d=-hw;d<=hw;d+=.5)P(Math.round(cx+dx*s-dy*d),Math.round(cy+dy*s+dx*d),1,1,pass===0?'#2a6a55':(s>=0?'#effff8':'#b0245f'))}
+    P(Math.round(cx),Math.round(cy),1,1,'#fff')}
+  function pose(){
+    lg.clearRect(0,0,64,64);var i,j,q;
+    for(j=-10;j<=10;j++)for(i=-10;i<=10;i++){q=i*i+j*j;if(q<=100&&q>=42)P(52+i,30+j,1,1,(q>=82||q<=52)?'#1a1020':'#f5c242')}
+    P(21,56,16,7,'#1a1020');P(22,57,14,5,'#9a8670');
+    disc(28,32,26,'#1a1020');disc(28,32,25,'#ecd2a8');
+    for(j=-25;j<=25;j++)for(i=-25;i<=25;i++){if(i*i+j*j>625)continue;var t=i+j;
+      if(t>28)P(28+i,32+j,1,1,'#c9a574');else if(t>12&&(i+j)%2===0)P(28+i,32+j,1,1,'#d8b98a');else if(t<-24&&(i+j)%2===0)P(28+i,32+j,1,1,'#f6e4c4')}
+    [[28,16],[14,42],[42,42]].forEach(function(c,n){
+      disc(c[0],c[1],8,'#2a7a5a');disc(c[0],c[1],7,'#8fe3c6');
+      for(var y=-7;y<=7;y++)for(var x=-7;x<=7;x++)if(x*x+y*y<=49&&x+y>5&&(x+y)%2===0)P(c[0]+x,c[1]+y,1,1,'#6fcfae');
+      P(c[0]-5,c[1]-4,3,1,'#e6fff5');P(c[0]-4,c[1]-5,2,1,'#e6fff5');
+      needle(c[0],c[1],-0.9+(n-1)*0.55+0.5*Math.sin(LF/5+n*1.3))});
+    LF++}
+  pose();if(!reduce)setInterval(pose,110);
+
+  // ===== artifact pages inside this single file =====
+  var home=[].slice.call(document.querySelectorAll('main>.hero,main>.sea,main>.wrap:not(.apage),main>footer')),pgs=[].slice.call(document.querySelectorAll('.apage'));
+  function route(){var m=location.hash.match(/^#a([1-5])$/);home.forEach(function(e){e.style.display=m?'none':''});pgs.forEach(function(p){p.hidden=!(m&&p.id==='a'+m[1])});if(m)scrollTo(0,0)}
+  addEventListener('hashchange',function(){route();var h=location.hash;if(h.length>1&&!/^#a[1-5]$/.test(h)){var t=document.querySelector(h);if(t)t.scrollIntoView()}});route();
+
+  // ===== gold sparkles on cards =====
+  document.querySelectorAll('.card').forEach(function(c){for(var k=0;k<5;k++){var e=document.createElement('i');e.className='sp';var z=8+Math.random()*8;e.style.cssText='left:'+(Math.random()*92)+'%;top:'+(Math.random()*92)+'%;width:'+z+'px;height:'+z+'px;animation-delay:'+(-Math.random()*3)+'s;animation-duration:'+(0.9+Math.random()*1.0)+'s';c.appendChild(e)}});
+})();
+</script>
+</body>
+</html>
