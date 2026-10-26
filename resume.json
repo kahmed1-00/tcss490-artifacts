@@ -1,0 +1,20 @@
+{
+  "name": "Khalil A. Ahmednoor",
+  "headline": "Computer science student at UW Tacoma with a cloud computing concentration, working toward the AWS Solutions Architect certification.",
+  "skills": ["Python", "Java", "JavaFX", "Git", "GitHub", "IntelliJ", "VS Code", "SQL", "MySQL", "REST APIs", "Linux", "AWS"],
+  "bullets": [
+    {"id": "edu", "section": "Education", "text": "University of Washington Tacoma, B.A. Computer Science & Systems, cloud computing concentration, expected June 2027. Completed Data Structures; in progress: Software Techniques & Quality Assurance."},
+    {"id": "aws", "section": "Certification", "text": "AWS Solutions Architect certification (in progress)."},
+    {"id": "ux", "section": "Involvement", "text": "Programmer, UX Club (since Sep 2024)."},
+    {"id": "amz1", "section": "Experience: Warehouse Associate, Amazon (Sep 2023 - Jan 2025)", "text": "Assisted customers with technical inquiries on computer-related issues, ensuring a smooth shopping experience."},
+    {"id": "amz2", "section": "Experience: Warehouse Associate, Amazon (Sep 2023 - Jan 2025)", "text": "Collaborated with team members to solve technology issues efficiently."},
+    {"id": "amz3", "section": "Experience: Warehouse Associate, Amazon (Sep 2023 - Jan 2025)", "text": "Utilized computer systems for item management, order processing, and troubleshooting."},
+    {"id": "aidlink", "section": "Projects", "text": "AidLink: Python disaster information platform (in progress)."},
+    {"id": "media", "section": "Projects", "text": "Event-Driven Media Platform: architecture showcase and prototype for a cloud-based media SaaS platform."},
+    {"id": "portfolio", "section": "Projects", "text": "Portfolio site: One Piece themed portfolio with pixel-art sprites, deployed on GitHub Pages."},
+    {"id": "musedunk", "section": "Projects", "text": "MuseDunk Arcade: interactive NBA stats and arcade website."},
+    {"id": "tetris", "section": "Projects", "text": "Tetris game built in Java."},
+    {"id": "finance", "section": "Projects", "text": "Finance Tracker application built in Java."},
+    {"id": "study", "section": "Projects", "text": "Study Tracker: progress tracker for the AWS Solutions Architect exam."}
+  ]
+}
