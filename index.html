@@ -166,7 +166,7 @@ footer{text-align:center;font-size:.85rem;padding:3rem 1rem 4rem}
     <section id="architecture">
       <div class="pix">&gt;The big project</div>
       <h2>Distributed event-driven <span class="hl">media platform.</span></h2>
-      <p class="sub">A sketch of the architecture I'm working toward for Artifact 4. Events sail from the client through the cloud to storage.</p>
+      <p class="sub">A sketch of a cloud media platform I'm working toward for my Solutions Architect cert. Events sail from the client through the cloud to storage.</p>
       <div class="arch panel">
         <svg viewBox="0 0 760 220" role="img" aria-label="Architecture: Client to API Gateway to Event Bus to Transcode Workers and Storage plus CDN">
           <path id="p1" class="pipe" d="M110 110H170"/><path id="p2" class="pipe" d="M290 110H350"/><path id="p3" class="pipe" d="M470 110C500 110 500 50 530 50H560"/><path id="p4" class="pipe" d="M470 110C500 110 500 170 530 170H560"/>
@@ -223,17 +223,17 @@ footer{text-align:center;font-size:.85rem;padding:3rem 1rem 4rem}
           <p>My resume page plus a Resume Tailor: paste a job posting and Claude picks and rewords my best-matching bullets, while plain code rejects any employer, number, or skill that isn't really on my resume.</p><p><b>Reflection:</b> Resume Tailor takes a job posting and has Claude pick and reword the resume bullets that fit it best. The AI call was the easy part. The real work was deciding what the code has to check, because a model will "improve" a bullet with numbers or skills I don't have. So the code checks every bullet, number and skill against my real resume, retries once, and falls back to keyword matching if Claude still gets it wrong. Testing with a fake model that lied showed me the checks actually work.</p>
           <div class="marine">TCSS 490</div>
         </article>
-        <article class="card panel placeholder big">
-          <span class="badge soon">Prototype</span>
+        <article class="card panel big">
+          <span class="badge">Team Build</span>
           <div class="wanted">WANTED</div>
           <div class="photo" data-n="4"><canvas class="spr" data-c="nami"></canvas></div>
           <div class="doa">DEAD OR ALIVE</div>
           <div class="who">NAMI</div>
-          <h3>Distributed Event-Driven Media SaaS Platform</h3>
-          <div class="bounty">฿ 366,000,000</div>
-          <p><a href="#a4">Open artifact &rarr;</a></p>
-          <p>An architecture showcase and prototype for a cloud-based media platform, built toward my Solutions Architect cert.</p>
-          <div class="marine">TCSS 490</div>
+          <h3>Paper Trading for CapStock</h3>
+          <div class="bounty">฿ 100,000 (paper)</div>
+          <p><a href="#a4">Open artifact &rarr;</a> &middot; <a href="https://tinle-ri.github.io/CapStock_FrontEnd/">Live dashboard</a></p>
+          <p>Fake buy/sell orders that fill against real-time stock prices, added to a live stock dashboard built in Elixir. A team build with Daniel Xu.</p><p><b>Reflection:</b> This was my first time sharing one codebase with a teammate and both of our AI agents, and my first time near Elixir. Daniel owned the Elixir backend and I took the UI and testing side, so we wrote the plan down in the repo first and pointed both agents at it, which kept us from overwriting each other. The bigger shift was building for someone else: the feature had to fit an existing live dashboard, not my own idea of it. For Artifact 5 I'd talk to the user earlier and keep the log as I go instead of at the end.</p>
+          <div class="marine">TCSS 490 &middot; Team w/ Daniel Xu</div>
         </article>
         <article class="card panel placeholder">
           <span class="badge soon">Prototype</span>
@@ -299,28 +299,19 @@ footer{text-align:center;font-size:.85rem;padding:3rem 1rem 4rem}
 <div class="panel"><h3>1. This Portfolio Site</h3><p class="small">A One Piece themed site with a pixel-art crew and ship.</p><a href="#a1">Open &rarr;</a></div>
 <div class="panel"><h3>2. MuseDunk Arcade</h3><p class="small">An arcade shooting game prototype.</p><a href="#a2">Open &rarr;</a></div>
 <div class="panel"><h3>3. Resume Tailor</h3><p class="small">Claude tailors my resume to any job posting.</p><a href="#a3">Open &rarr;</a></div>
-<div class="panel"><h3>4. Event-Driven Media Platform</h3><p class="small">An architecture simulator for a cloud media platform.</p><a href="#a4">Open &rarr;</a></div>
+<div class="panel"><h3>4. Paper Trading for CapStock</h3><p class="small">Team build: fake trades that fill at real-time prices on a live Elixir dashboard.</p><a href="#a4">Open &rarr;</a></div>
 <div class="panel"><h3>5. Study Tracker</h3><p class="small">A Solutions Architect exam progress tracker.</p><a href="#a5">Open &rarr;</a></div></div></section>
 <section><div class="contact panel"><div class="pix">&gt;Links</div><h2>Find me online.</h2><a class="cta" href="https://github.com/kahmed1-00">GitHub</a><a class="cta alt" href="https://www.linkedin.com/in/khalil-ahmednoor-0a6275348/">LinkedIn</a><a class="cta alt" href="javascript:window.print()">Print / Save PDF</a></div></section>
 </div>
 <div class="wrap apage" id="a4" hidden>
-<section style="padding-top:3rem"><div class="two panel"><div><div class="pix">&gt;Artifact 4</div><h2>Event-Driven Media <span class="hl">Platform</span></h2><p>An architecture showcase for a cloud-based media platform, built toward my Solutions Architect certification.</p><a class="cta alt" href="#artifacts">&larr; All artifacts</a></div>
-<div class="stage" style="height:auto"><article class="card panel" style="max-width:240px;grid-column:auto"><div class="wanted">WANTED</div><div class="photo" data-n="4"><canvas class="spr" data-c="nami"></canvas></div><div class="doa">DEAD OR ALIVE</div><div class="who">NAMI</div><div class="bounty">฿ 366,000,000</div><div class="marine">TCSS 490</div></article></div></div></section>
-<section><div class="pix">&gt;Simulator</div><h2>Follow an <span class="hl">upload.</span></h2>
-<p class="sub">A concept sketch, not a deployed system. Press the button to watch one video upload travel through the platform as events.</p>
-<div class="arch panel"><svg viewBox="0 0 760 220" role="img" aria-label="Client to API Gateway to Event Bus to Transcode Workers and Storage plus CDN">
-<path class="pipe" d="M110 110H170"/><path class="pipe" d="M290 110H350"/><path class="pipe" d="M470 110C500 110 500 50 530 50H560"/><path class="pipe" d="M470 110C500 110 500 170 530 170H560"/>
-<rect class="box" id="cl" x="10" y="85" width="100" height="50" rx="8"/><text x="60" y="115" text-anchor="middle">Client</text>
-<rect class="box" id="ap" x="170" y="85" width="120" height="50" rx="8"/><text x="230" y="115" text-anchor="middle">API Gateway</text>
-<rect class="box" id="eb" x="350" y="85" width="120" height="50" rx="8"/><text x="410" y="115" text-anchor="middle">Event Bus</text>
-<rect class="box" id="wk" x="560" y="25" width="190" height="50" rx="8"/><text x="655" y="55" text-anchor="middle">Transcode Workers</text>
-<rect class="box" id="st" x="560" y="145" width="190" height="50" rx="8"/><text x="655" y="175" text-anchor="middle">Storage + CDN</text></svg></div>
-<p style="text-align:center"><button class="cta" id="run">Upload a video</button></p>
-<div class="panel" id="log" style="padding:1rem;min-height:120px;font-size:.85rem"><div>Event log appears here.</div></div></section>
-<section><div class="pix">&gt;Mapping</div><h2>Possible <span class="hl">AWS services.</span></h2><div class="row">
-<div class="panel"><h3>Entry</h3><ul class="t small"><li>Client: web or mobile app</li><li>API Gateway for auth and uploads</li></ul></div>
-<div class="panel"><h3>Events</h3><ul class="t small"><li>EventBridge or SNS + SQS as the bus</li><li>Decoupled, retryable consumers</li></ul></div>
-<div class="panel"><h3>Work and storage</h3><ul class="t small"><li>Lambda, ECS Fargate or MediaConvert for transcoding</li><li>S3 for files, CloudFront as the CDN</li></ul></div></div></section>
+<section style="padding-top:3rem"><div class="two panel"><div><div class="pix">&gt;Artifact 4</div><h2>Paper Trading for <span class="hl">CapStock</span></h2><p>A team build: paper trading (fake buy and sell orders that fill against real-time prices) added to a live stock dashboard written in Elixir.</p><a class="cta" href="https://tinle-ri.github.io/CapStock_FrontEnd/">Live dashboard</a> <a class="cta alt" href="#artifacts">&larr; All artifacts</a></div>
+<div class="stage" style="height:auto"><article class="card panel" style="max-width:240px;grid-column:auto"><div class="wanted">WANTED</div><div class="photo" data-n="4"><canvas class="spr" data-c="nami"></canvas></div><div class="doa">DEAD OR ALIVE</div><div class="who">NAMI</div><div class="bounty">฿ 100,000 (paper)</div><div class="marine">TCSS 490</div></article></div></div></section>
+<section><div class="pix">&gt;The build</div><h2>Who did <span class="hl">what.</span></h2><div class="row">
+<div class="panel"><h3>The idea</h3><ul class="t small"><li>Let people practice trading with fake money</li><li>Orders fill at live market prices</li><li>No real money at risk</li></ul></div>
+<div class="panel"><h3>Team</h3><ul class="t small"><li>Daniel Xu: Elixir backend, order filling</li><li>Me: trading UI and testing</li></ul></div>
+<div class="panel"><h3>Working together</h3><ul class="t small"><li>Written plan in the shared repo</li><li>Branches and pull requests</li><li>Both agents read the same plan</li></ul></div>
+</div></section>
+<section><div class="pix">&gt;Reflection</div><h2>What I <span class="hl">learned.</span></h2><div class="panel" style="padding:1.2rem"><p><b>Reflection:</b> This was my first time sharing one codebase with a teammate and both of our AI agents, and my first time near Elixir. Daniel owned the Elixir backend and I took the UI and testing side, so we wrote the plan down in the repo first and pointed both agents at it, which kept us from overwriting each other. The bigger shift was building for someone else: the feature had to fit an existing live dashboard, not my own idea of it. For Artifact 5 I'd talk to the user earlier and keep the log as I go instead of at the end.</p></div></section>
 </div>
 <div class="wrap apage" id="a5" hidden>
 <section style="padding-top:3rem"><div class="two panel"><div><div class="pix">&gt;Artifact 5</div><h2>Solutions Architect <span class="hl">Study Tracker</span></h2><p>A tool to track my cert progress, keep notes and practice with flashcards. Everything saves in your browser.</p><a class="cta alt" href="#artifacts">&larr; All artifacts</a></div>
@@ -353,7 +344,7 @@ addEventListener('keydown',function(e){if(e.code==='Space'&&!document.getElement
 (function(){})();
 (function(){var steps=[[0,'cl','Client uploads video.mp4'],[900,'ap','API Gateway authorizes the request and returns 202 Accepted'],[1800,'eb','Event VideoUploaded is published to the event bus'],[2700,'wk','A transcode worker consumes the event and makes 1080p, 720p and 480p renditions'],[4200,'st','Renditions are written to storage and the CDN cache is primed'],[5000,'eb','Event VideoReady is published, client is notified']],busy=false;
 function lit(id){['cl','ap','eb','wk','st'].forEach(function(i){document.getElementById(i).classList.toggle('on',i===id)})}
-document.getElementById('run').onclick=function(){if(busy)return;busy=true;var lg=document.getElementById('log');lg.innerHTML='';
+(document.getElementById('run')||{}).onclick=function(){if(busy)return;busy=true;var lg=document.getElementById('log');lg.innerHTML='';
 steps.forEach(function(s){setTimeout(function(){lit(s[1]);var d=document.createElement('div');d.textContent=new Date().toLocaleTimeString()+'  '+s[2];lg.appendChild(d)},s[0])});
 setTimeout(function(){lit('');busy=false},6000)};})();
 (function(){var D=[['Design Secure Architectures',30],['Design Resilient Architectures',26],['Design High-Performing Architectures',24],['Design Cost-Optimized Architectures',20]];
